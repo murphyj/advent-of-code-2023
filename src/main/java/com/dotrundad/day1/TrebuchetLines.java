@@ -1,6 +1,8 @@
 package com.dotrundad.day1;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TrebuchetLines {
 

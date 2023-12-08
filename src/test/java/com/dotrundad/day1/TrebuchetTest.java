@@ -40,4 +40,39 @@ public class TrebuchetTest {
         String answer = "24";
         assertEquals(answer, trebuchet.calibrate(line));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"two"})
+    public void testCalibrateWithSingleAlphaNumber(String line) {
+        String answer = "22";
+        assertEquals(answer, trebuchet.calibrate(line));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"one23", "15four6three"})
+    public void testCalibrateDetectsTwoDifferentAlphaNumbers(String line) {
+        String answer = "13";
+        assertEquals(answer, trebuchet.calibrate(line));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"fourfive"})
+    public void testCalibrateDetectsTwoAlphaNumbersTogether(String line) {
+        String answer = "45";
+        assertEquals(answer, trebuchet.calibrate(line));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"tbninefour4eight"})
+    public void testCalibrateTestsNoneMatch(String line) {
+        String answer = "98";
+        assertEquals(answer, trebuchet.calibrate(line));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"lhnnine2qjptwonine3"})
+    public void testCalibrateCustomTest(String line) {
+        String answer = "93";
+        assertEquals(answer, trebuchet.calibrate(line));
+    }
 }

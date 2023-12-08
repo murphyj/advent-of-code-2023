@@ -28,15 +28,30 @@ public class TrebuchetLinesTest {
     @Test
     public void testCalibrateWithTest1() throws Exception {
         List<String> lines = readFile("src/test/resources/test1.txt");
-        
+
         int answer = 142;
+        assertEquals(answer, trebuchetLines.calibrateLines(lines));
+    }
+
+    @Test
+    public void testCalibrateWithTest2() throws Exception {
+        List<String> lines = readFile("src/test/resources/test2.txt");
+
+        int answer = 281;
         assertEquals(answer, trebuchetLines.calibrateLines(lines));
     }
     
     @Test
-    public void testCalibrateWithTestSample() throws Exception {
-        List<String> lines = readFile("src/test/resources/sampleTest.txt");
+    public void testCalibrateWithSamplePartOne() throws Exception {
+        List<String> lines = readFile("src/test/resources/partOneFullSample.txt");
         
+        System.out.println(trebuchetLines.calibrateLines(lines));
+    }
+
+    @Test
+    public void testCalibrateWithSamplePartTwo() throws Exception {
+        List<String> lines = readFile("src/test/resources/partTwoSample.txt");
+
         System.out.println(trebuchetLines.calibrateLines(lines));
     }
 
